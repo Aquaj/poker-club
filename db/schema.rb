@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305224025) do
+ActiveRecord::Schema.define(version: 20160305231412) do
 
   create_table "bets", force: :cascade do |t|
     t.integer  "pot_id"
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20160305224025) do
 
   add_index "hands", ["playing_session_id"], name: "index_hands_on_playing_session_id"
 
+  create_table "histories", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "histories", ["user_id"], name: "index_histories_on_user_id"
+
   create_table "playing_sessions", force: :cascade do |t|
     t.integer  "game_id"
     t.integer  "user_id"
@@ -71,6 +79,25 @@ ActiveRecord::Schema.define(version: 20160305224025) do
   end
 
   add_index "pots", ["game_id"], name: "index_pots_on_game_id"
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "history_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "results", ["history_id"], name: "index_results_on_history_id"
+
+  create_table "scores", force: :cascade do |t|
+    t.integer  "result_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "earnings"
+  end
+
+  add_index "scores", ["result_id"], name: "index_scores_on_result_id"
+  add_index "scores", ["user_id"], name: "index_scores_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

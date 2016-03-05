@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :playing_sessions
   has_many :bets
+  has_one :history
 end
