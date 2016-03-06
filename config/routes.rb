@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get team: "pages#team"
   get dashboard: "pages#dashboard"
 
-  resources :game, only: [:index, :create, :new, :destroy]
+  resources :games, only: [:index, :show, :create, :new, :destroy]
   get stats: "history#show"
 
   # Serve websocket cable requests in-process
-  # mount ActionCable.server => '/cable'
+  mount ActionCable.server => '/cable'
 end

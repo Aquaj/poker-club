@@ -19,4 +19,9 @@ class GamesController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @game = Game.find(params[:id])
+    @gmae.destroy
+  end
 end
