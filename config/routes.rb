@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get about: "pages#about"
   get team: "pages#team"
 
-  resources :game, only: [:index, :create, :new]
+  resources :game, only: [:index, :create, :new, :destroy]
+  resources :history, only: [:show]
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
