@@ -16,6 +16,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'bootstrap-sass'
+gem 'simple_form', git: 'git@github.com:plataformatec/simple_form.git'
+
 gem 'devise', git: 'git@github.com:plataformatec/devise.git'
 
 # Use jquery as the JavaScript library
