@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :playing_sessions
   has_many :bets
-  has_many :friendships, foreign_key: "friend_a_id"
+  has_many :friendships, foreign_key: "friend_a_id", dependent: :destroy
   has_many :friends, through: :friendships, source: "friend_b"
   has_one :history
 
