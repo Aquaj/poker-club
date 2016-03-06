@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :playing_sessions
   has_many :bets
   has_one :history
+
+  validates :username, presence: true
 end
