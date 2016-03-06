@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get dashboard: "pages#dashboard"
 
   resources :game, only: [:index, :create, :new, :destroy]
-  resources :history, only: [:show]
+  get stats: "history#show"
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
