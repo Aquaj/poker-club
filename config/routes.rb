@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get home: "pages#home"
   get about: "pages#about"
   get team: "pages#team"
+  get dashboard: "pages#dashboard"
 
   resources :game, only: [:index, :create, :new, :destroy]
   resources :history, only: [:show]
